@@ -1,0 +1,31 @@
+name: 🥖 Daily Starter Reminder
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # Runs at 08:00 UTC daily
+  workflow_dispatch:    # optional: manual trigger via GitHub UI
+
+jobs:
+  starter-check:
+    runs-on: ubuntu-latest
+
+    env:
+      ENV_NAME: ${{ vars.ENV_NAME }}
+      BARK_KEY: ${{ secrets.BARK_KEY }}
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      DATABASE_ID: ${{ secrets.DATABASE_ID }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv pytz
+
+      - name: Run starter check
+        run: python bark_pn.py

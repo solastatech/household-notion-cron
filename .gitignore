@@ -1,0 +1,16 @@
+#Environment files with sensitive data	
+.env
+.env.*
+!.env.template
+
+#Python
+__pycache__/
+*.pyc
+
+#MacOS
+.DS_Store
+
+#Anything else
+Debug_folder/
+notion_raw_dump.json
+req.txt

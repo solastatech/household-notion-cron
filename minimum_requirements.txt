@@ -1,0 +1,4 @@
+requests==2.31.0
+DateTime==5.1
+dotenv==0.9.9
+pytz
