@@ -12,7 +12,7 @@ print(bark_key)
 # 🔔 Send Bark Notification
 # =======================================
 def send_bark_notification(title, body):
-    icon = "https://raw.githubusercontent.com/solastatech/household-notion-cron/main/new%20logo%20TGR.png"
+    icon = "https://github.com/solastatech/household-notion-cron/blob/63550ac77e5a6f1172c6ba5b89043724751d6d9c/new%20logo%20TGR.png?raw=true"
     url = f"https://api.day.app/{bark_key}/{quote(title)}/{quote(body)}?icon={icon}"
     r = requests.get(url)
     r.raise_for_status()
