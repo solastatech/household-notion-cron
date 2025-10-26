@@ -50,7 +50,7 @@ feeding_spreadsheet = client.open_by_url(feeding_tracker).sheet1
 feeding_df = pd.DataFrame(feeding_spreadsheet.get_all_records())
 
 # Convert Date column to datetime, coercing invalids
-feeding_df["Date"] = pd.to_datetime(feeding_df["Date"], errors="coerce")
+feeding_df["Date"] = pd.to_datetime(feeding_df["Date"], format="%d/%m/%Y", errors="coerce")
 
 # Keep only up to the last valid date (drops trailing empty rows)
 last_valid_idx = feeding_df["Date"].last_valid_index()
