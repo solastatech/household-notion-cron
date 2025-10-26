@@ -13,4 +13,5 @@ __pycache__/
 #Anything else
 Debug_folder/
 notion_raw_dump.json
+bark_pn_tracker_gsheet_key.json
 req.txt
