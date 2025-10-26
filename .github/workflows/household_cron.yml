@@ -11,9 +11,8 @@ jobs:
 
     env:
       ENV_NAME: ${{ vars.ENV_NAME }}
-      BARK_KEY: ${{ secrets.BARK_KEY }}
-      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-      DATABASE_ID: ${{ secrets.DATABASE_ID }}
+      KEY_FILE_NAME: ${{ secrets.KEY_FILE_NAME }}
+      FEEDING_TRACKER: ${{ secrets.FEEDING_TRACKER }}
 
     steps:
       - name: Checkout repo
@@ -25,7 +24,7 @@ jobs:
           python-version: 3.11
 
       - name: Install dependencies
-        run: pip install requests python-dotenv pytz
+        run: pip install requests python-dotenv 
 
       - name: Run starter check
-        run: python bark_pn.py
+        run: python feeding_gsheet.py
