@@ -2,16 +2,22 @@
 .env
 .env.*
 !.env.template
+bark_pn_tracker_gsheet_key.json
 
 #Python
 __pycache__/
 *.pyc
+.ipynb_checkpoints
+bark_pn.py
+send_test_noti.py
 
 #MacOS
 .DS_Store
 
 #Anything else
+feeding.zip
+requirements.txt
+ExportBlock-a548f4c7-01c5-4586-a033-ac71b5354004-Part-1/
 Debug_folder/
 notion_raw_dump.json
-bark_pn_tracker_gsheet_key.json
 req.txt
