@@ -1,5 +1,4 @@
 from debug_config import verbose
-from send_test_noti import send_bark_notification
 
 def debug(*args):
     """Print debug messages only when verbose is True."""
