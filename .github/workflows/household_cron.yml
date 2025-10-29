@@ -13,6 +13,7 @@ jobs:
       ENV_NAME: ${{ vars.ENV_NAME }}
       KEY_FILE_NAME: ${{ secrets.KEY_FILE_NAME }}
       FEEDING_TRACKER: ${{ secrets.FEEDING_TRACKER }}
+      BARK_KEY: ${{ secrets.BARK_KEY }}
 
     steps:
       - name: Checkout repo
