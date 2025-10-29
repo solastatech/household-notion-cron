@@ -108,5 +108,5 @@ for name, info in STARTERS.items():
         requests.get(url)
         print(f"🔔 Sent Bark notification for {name}")
     else:
-        print(f"✅ {name} OK until {next_due.date()}")
+        print(f"✅ {name} OK until {next_due}")
 
