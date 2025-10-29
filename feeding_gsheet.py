@@ -75,7 +75,7 @@ STARTERS = {
     },
 }
 
-today = pd.Timestamp.today().normalize()
+today = pd.Timestamp.utcnow().normalize()
 debug(today)
 
 debug(feeding_df["Date"].tail(1))
