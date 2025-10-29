@@ -1,6 +1,7 @@
 import os
 import sys
 from dotenv import load_dotenv
+import pytz
 import pandas as pd
 import requests
 import json
@@ -75,7 +76,8 @@ STARTERS = {
     },
 }
 
-today = pd.Timestamp.utcnow().normalize()
+tz = pytz.timezone("Europe/London")
+today = pd.Timestamp.now(tz).date()
 debug(today)
 
 debug(feeding_df["Date"].tail(1))
@@ -91,13 +93,11 @@ for name, info in STARTERS.items():
     last_row = nonempty.tail(1)
 
     last_row = nonempty.tail(1)
-    last_fed = last_row["Date"].values[0]
-    last_fed_1 = last_row["Date"]
+    last_fed = pd.Timestamp(last_row["Date"].values[0]).tz_localize(tz)
+    
+    next_due = (last_fed + pd.Timedelta(days=freq)).date()
 
-    next_due = last_fed + pd.Timedelta(days=freq)
-    debug(col, type(last_fed), type(last_fed_1))
-    debug(col, today > last_fed)
-    debug(col, today > last_fed_1)
+    debug(col, today, next_due, today > next_due)
 
     if today > next_due:
         days_passed = (today - next_due).days
